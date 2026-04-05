@@ -6,20 +6,20 @@
 
 #include<stdio.h>
 
-int binarySearch(int a[], int t, int s, int l)
+int binarySearch(int a[], int target, int startIndex, int lastIndex)
 {
-    int m;
+    int mid;
 
-    if(l >= s)
+    if(lastIndex >= startIndex)
     {
-        m = (l + s) / 2;
+        mid = (lastIndex + startIndex) / 2;
 
-        if(a[m] == t)
-            return m;
-        else if(a[m] > t)
-            return binarySearch(a, t, s, m - 1);
+        if(a[mid] == target)
+            return mid;
+        else if(a[mid] > target)
+            return binarySearch(a, target, startIndex, mid - 1);
         else
-            return binarySearch(a, t, m + 1, l);
+            return binarySearch(a, target, mid + 1, lastIndex);
     }
 
     return -1;
