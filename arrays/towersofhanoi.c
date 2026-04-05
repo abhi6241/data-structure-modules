@@ -1,3 +1,13 @@
+/*
+    The Towers of Hanoi problem involves moving a specified number of disks
+    from one tower to another using a third as an auxiliary tower. Write a C
+    program to move ‘n’ disks from peg A to peg C, using peg B as needed by
+    following the conditions
+    Only one disk may be moved at a time
+    This disk must be the top disk on a peg
+    A larger disk can never be placed on top of a smaller disk.
+*/
+
 #include<stdio.h>
 
 void towersOfHanoi(int n, char source, char auxi, char dest)

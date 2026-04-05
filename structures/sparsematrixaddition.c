@@ -1,3 +1,15 @@
+/*
+    Write a C program to define an ADT t
+    _
+    term with row,col and val as members
+    and implement the following operations
+    i) To read two sparse matrices in triple term format
+    ii) To perform addition between two sparse matrices
+    iii) To display the sparse matrix in triple term format
+    Read two sparse matrices, perform the addition and display original and
+    resultant sparse matrices.
+*/
+
 #include<stdio.h>
 #define ROW 10
 #define COL 10

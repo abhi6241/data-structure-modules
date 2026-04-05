@@ -1,3 +1,10 @@
+/*
+    Given a set of n≥1 elements, write a C program to print out all possible
+    Permutations of this set using recursion.
+    If the set is {1,2,3} then the set of permutations are {(1,2,3) , (1,3,2), (2,1,3),
+    (2,3,1), (3,1,2), (3,2,1)}.
+*/
+
 #include<stdio.h>
 #include<string.h>
 

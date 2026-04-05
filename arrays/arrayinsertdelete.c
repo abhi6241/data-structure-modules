@@ -1,3 +1,12 @@
+/*
+    Write a C program to read set of integer data values using one dimensional
+    array and perform the following operations
+    i) Insert a data value at specified location and display the new set of
+    data values.
+    ii) Delete a data value of array from specified location and display the
+    resultant array.
+*/
+
 #include<stdio.h>
 
 void insert(int a[], int *n, int place, int e) {

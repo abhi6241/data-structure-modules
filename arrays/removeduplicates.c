@@ -1,3 +1,8 @@
+/*
+    Write a C program to read set of ‘n’ integer data values using one dimensional
+    array, remove the duplicate data values and display the resultant array.
+*/
+
 #include <stdio.h>
 
 // Function to remove duplicates

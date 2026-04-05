@@ -1,3 +1,9 @@
+/*
+    Write a C program to search for the key element from the set of given data
+    values which are arranged in ascending order by applying “Binary search”
+    algorithm using Recursion?
+*/
+
 #include<stdio.h>
 
 int binarySearch(int a[], int t, int s, int l)

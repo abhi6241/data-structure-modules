@@ -1,3 +1,8 @@
+/*
+    Write a C program to read set of ‘n’ integer data values using one dimensional
+    array, display the smallest and largest data values of the array.
+*/
+
 #include<stdio.h>
 
 int smallest(int a[], int n)

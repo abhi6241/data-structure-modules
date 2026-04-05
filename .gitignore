@@ -1,0 +1,65 @@
+# Ignore object and temporary files
+*.o
+*.obj
+*.lo
+*.la
+
+# Static and shared libraries
+*.a
+*.lib
+*.so
+*.dylib
+
+# Executables
+*.exe
+*.out
+a.out
+
+# Build directories
+/build/
+/bin/
+/out/
+/dist/
+/target/
+
+# CMake files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+install_manifest.txt
+Makefile.orig
+
+# Debug and crash reports
+*.dSYM/
+*.core
+core
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.tmp
+*.bak
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
+
+# Tags
+tags
+
+# Misc
+.env
+
+# Node/npm (if any stray files exist)
+node_modules/
+
+# Python cache (rarely needed here but harmless)
+__pycache__/
+*.py[cod]
