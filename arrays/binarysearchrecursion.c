@@ -12,8 +12,8 @@ int binarySearch(int a[], int target, int startIndex, int lastIndex)
 
     if(lastIndex >= startIndex)
     {
-        mid = (lastIndex + startIndex) / 2;
-
+        mid = startIndex + (lastIndex - startIndex) / 2;
+        
         if(a[mid] == target)
             return mid;
         else if(a[mid] > target)
