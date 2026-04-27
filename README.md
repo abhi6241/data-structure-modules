@@ -43,6 +43,18 @@ This repository holds C implementations for many common data-structure and algor
 - `sparsematrixaddition.c` — Add two sparse matrices
 - `symmetricornot.c` — Check if a matrix is symmetric
 
+### sorting/
+- `heapsort.c` — Heap sort implementation; builds a max-heap then extracts elements to sort an array in ascending order
+- `insertionsort.c` — Insertion sort implementation; inserts elements into the sorted portion of the array
+- `mergesort.c` — Merge sort implementation; divide-and-conquer merge routine with a recursive driver
+- `quicksort.c` — Quick sort implementation; partition-based recursive sort with Lomuto-style partition
+- `selectionsort.c` — Selection sort implementation; select the minimum element and place it at the front repeatedly
+
+### trees/
+- `binarysearch.c` — Binary tree using array representation with inorder, preorder and postorder traversals
+- `bstoperations.c` — Binary Search Tree operations: insert, traversals, search and delete (handles 0/1/2 child cases)
+- `maxheaptree.c` — (file present) Max-heap tree operations / heap-based algorithms
+
 ## How to compile
 Compile any C source file with gcc. Example (from repository root):
 
