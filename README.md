@@ -2,6 +2,17 @@
 
 This repository holds C implementations for many common data-structure and algorithm exercises used for learning and practice. Below is a grouped list of the question/source files included in this repository.
 
+## Table of contents
+
+- [arrays](#arrays)
+- [infixprefixpostfix](#infixprefixpostfix)
+- [linkedlist](#linkedlist)
+- [stackqueuewitharray](#stackqueuewitharray)
+- [strings](#strings)
+- [structures](#structures)
+- [sorting](#sorting)
+- [trees](#trees)
+
 ## Contents (questions)
 
 ### arrays/
