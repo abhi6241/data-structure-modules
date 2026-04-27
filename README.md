@@ -1,5 +1,7 @@
 # Coding all Data Structures Modules
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
 This repository holds C implementations for many common data-structure and algorithm exercises used for learning and practice. Below is a grouped list of the question/source files included in this repository.
 
 ## Table of contents

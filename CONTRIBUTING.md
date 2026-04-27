@@ -25,3 +25,21 @@ Thank you for considering contributing to this repository! To keep contributions
 - By contributing, you agree that your contributions will be licensed under the project's MIT License.
 
 Thanks again — contributions are welcome! If you want help opening a PR or want a reviewer, mention it in the PR description.
+
+---
+
+Contributor checklist (before opening a PR)
+
+- [ ] I have forked the repository and created a feature branch from `main`.
+- [ ] My code compiles with `gcc` and I have included any sample input or expected output in the source file comments.
+- [ ] I added or updated README entries if I added new example programs.
+- [ ] I ran a basic smoke test and ensured no unrelated files were modified.
+
+PR checklist
+
+- [ ] Title clearly describes the change.
+- [ ] The PR description explains why the change is needed (link related issue if available).
+- [ ] Changes are limited in scope and well-documented.
+- [ ] I have included any new tests or example commands where applicable.
+
+If you want a reviewer or CI testing, request reviewers in the GitHub UI or mention them in the PR description.
