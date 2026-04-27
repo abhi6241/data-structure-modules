@@ -9,27 +9,31 @@
 
 #include<stdio.h>
 
-void insert(int a[], int *n, int place, int e) {
+void insert(int a[], int *n, int place, int e)
+{
     for(int i = *n; i > place; i--)
         a[i] = a[i-1];
     a[place] = e;
     (*n)++;
 }
 
-void delete(int a[], int *n, int place) {
+void delete(int a[], int *n, int place)
+{
     for(int i = place; i < *n-1; i++)
         a[i] = a[i+1];
     (*n)--;
 }
 
-int main() {
+int main()
+{
     int n, e, place, a[100], choice;
     
     printf("Enter no. of elements: ");
     scanf("%d", &n);
     
     printf("Initialize array: ");
-    for(int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++)
+    {
         printf("a[%d]: ", i);
         scanf("%d", &a[i]);
     }
@@ -37,11 +41,13 @@ int main() {
     printf("\n1. Insert\n2. Delete\nEnter choice: ");
     scanf("%d", &choice);
     
-    switch(choice) {
+    switch(choice)
+    {
         case 1:
             printf("Enter place to insert: ");
             scanf("%d", &place); place--;
-            if(place < 0 || place >= n+1 || n >= 99) {
+            if(place < 0 || place >= n+1 || n >= 99)
+            {
                 printf("Invalid position!\n");
                 break;
             }
@@ -53,7 +59,8 @@ int main() {
         case 2:
             printf("Enter place to delete: ");
             scanf("%d", &place); place--;
-            if(place < 0 || place >= n) {
+            if(place < 0 || place >= n)
+            {
                 printf("Invalid position!\n");
                 break;
             }

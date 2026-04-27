@@ -5,7 +5,8 @@
 
 #include <stdio.h>
 
-int main() {
+int main()
+{
     int n, i, j, sum, rowsum, colsum, diag1 = 0, diag2 = 0;
     int isMagic = 1;
     int mat[20][20];

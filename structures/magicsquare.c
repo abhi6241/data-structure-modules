@@ -4,7 +4,8 @@
 
 #include<stdio.h>
 
-int main() {
+int main()
+{
     int a[10][10] = {0};
     int n, i, j, r, c, r1, c1;
 
@@ -16,7 +17,8 @@ int main() {
     c = n / 2;
     a[r][c] = 1;
 
-    for (i = 2; i <= n * n; i++) {
+    for (i = 2; i <= n * n; i++)
+    {
         r1 = r; 
         c1 = c;
         
@@ -41,8 +43,10 @@ int main() {
 
     // Display the Magic Square
     printf("\nMagic Square of size %d:\n", n);
-    for (i = 0; i < n; i++) {
-        for (j = 0; j < n; j++) {
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < n; j++)
+        {
             printf("%d\t", a[i][j]);
         }
         printf("\n");

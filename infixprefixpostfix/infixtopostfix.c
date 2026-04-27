@@ -5,7 +5,8 @@
 #include <stdio.h>
 #include <string.h>
 
-int priority(char x) {
+int priority(char x)
+{
     if (x == '(') return 0;
     if (x == '+' || x == '-') return 1;
     if (x == '*' || x == '/') return 2;
@@ -71,7 +72,8 @@ void reverse(char *str, char *rev)
     rev[j] = '\0';
 }
 
-int main(void) {
+int main(void)
+{
     char infix[100], postfix[100], infixRev[100], intermediatePostfix[100], prefix[100];
 
     printf("Enter the infix expression: ");
