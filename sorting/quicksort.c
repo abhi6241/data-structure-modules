@@ -11,7 +11,8 @@
 void swap(int* a, int* b);
 
 // partition function
-int partition(int arr[], int low, int high) {
+int partition(int arr[], int low, int high)
+{
     
     // Choose the pivot
     int pivot = arr[high];
@@ -23,8 +24,10 @@ int partition(int arr[], int low, int high) {
     // Traverse arr[low..high] and move all smaller
     // elements to the left side. Elements from low to 
     // i are smaller after every iteration
-    for (int j = low; j <= high - 1; j++) {
-        if (arr[j] < pivot) {
+    for (int j = low; j <= high - 1; j++)
+    {
+        if (arr[j] < pivot)
+        {
             i++;
             swap(&arr[i], &arr[j]);
         }
@@ -37,8 +40,10 @@ int partition(int arr[], int low, int high) {
 }
 
 // The QuickSort function implementation
-void quickSort(int arr[], int low, int high) {
-    if (low < high) {
+void quickSort(int arr[], int low, int high)
+{
+    if (low < high)
+    {
         
         // pi is the partition return index of pivot
         int pi = partition(arr, low, high);
@@ -50,18 +55,21 @@ void quickSort(int arr[], int low, int high) {
     }
 }
 
-void swap(int* a, int* b) {
+void swap(int* a, int* b)
+{
     int t = *a;
     *a = *b;
     *b = t;
 }
 
-int main() {
+int main()
+{
     int arr[] = {10, 7, 8, 9, 1, 5};
     int n = sizeof(arr) / sizeof(arr[0]);
 
     quickSort(arr, 0, n - 1);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         printf("%d ", arr[i]);
     }
     
