@@ -64,7 +64,7 @@ This repository holds C implementations for many common data-structure and algor
 ### trees/
 - `binarysearch.c` — Binary tree using array representation with inorder, preorder and postorder traversals
 - `bstoperations.c` — Binary Search Tree operations: insert, traversals, search and delete (handles 0/1/2 child cases)
-- `maxheaptree.c` — (file present) Max-heap tree operations / heap-based algorithms
+- `maxheaptree.c` — Max-heap tree operations / heap-based algorithms
 
 ## How to compile
 Compile any C source file with gcc. Example (from repository root):
