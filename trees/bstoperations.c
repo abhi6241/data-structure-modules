@@ -15,230 +15,145 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define FALSE 0
-#define TRUE 1
-
-typedef struct bstnode
+// Structure for the Binary Search Tree Node
+typedef struct btnode 
 {
     int data;
-    struct bstnode *left;
-    struct bstnode *right;
-} bstnode;
+    struct btnode *left, *right;
+} btnode;
 
-// Function Prototypes
-void insert(bstnode **sr, int num);
-void inorder(bstnode *root);
-void preorder(bstnode *root);
-void postorder(bstnode *root);
-void search(bstnode **r, int num, bstnode **par, bstnode **x, int *fo);
-void del(bstnode **root, int num);
-
-int main(void)
+// Function to create a new node
+btnode* createNode(int val) 
 {
-    bstnode *bt = NULL;
-    // The specific data set from your question
-    int data_set[] = {20, 17, 6, 8, 10, 7, 18, 13, 12, 5};
-    int n = sizeof(data_set) / sizeof(data_set[0]);
-    int de;
+    btnode* newNode = (btnode*)malloc(sizeof(btnode));
+    newNode->data = val;
+    newNode->left = newNode->right = NULL;
+    return newNode;
+}
 
-    // i) Construct the BST by invoking insert(btnode**, int)
-    printf("Constructing BST with: 20, 17, 6, 8, 10, 7, 18, 13, 12, 5\n");
-    for (int i = 0; i < n; i++)
+// i) Construct the BST by invoking insert(btnode**, int)
+void insert(btnode** root, int val) 
+{
+    if (*root == NULL) 
     {
-        insert(&bt, data_set[i]);
+        *root = createNode(val);
+    } 
+    else if (val < (*root)->data) 
+    {
+        insert(&((*root)->left), val);
+    } 
+    else if (val > (*root)->data) 
+    {
+        insert(&((*root)->right), val);
+    }
+}
+
+// In-order Traversal: Left -> Root -> Right
+void inOrder(btnode* root) 
+{
+    if (root != NULL) 
+    {
+        inOrder(root->left);
+        printf("%d ", root->data);
+        inOrder(root->right);
+    }
+}
+
+// Helper function to find the minimum value node (In-order Successor)
+btnode* findMin(btnode* root) 
+{
+    while (root != NULL && root->left != NULL) 
+    {
+        root = root->left;
+    }
+    return root;
+}
+
+// ii) Delete a node with search logic and case handling
+btnode* deleteNode(btnode* root, int key, int* found) 
+{
+    if (root == NULL) 
+    {
+        return NULL;
     }
 
-    // Display contents by applying in-order traversal
-    printf("\nIn-order traversal (Step i): ");
-    inorder(bt);
-    
-    printf("\nPre-order traversal:  ");
-    preorder(bt);
-    
-    printf("\nPost-order traversal: ");
-    postorder(bt);
-    printf("\n");
+    if (key < root->data) 
+    {
+        root->left = deleteNode(root->left, key, found);
+    } 
+    else if (key > root->data) 
+    {
+        root->right = deleteNode(root->right, key, found);
+    } 
+    else 
+    {
+        // Node found!
+        *found = 1;
 
-    // ii) Delete a node specified by its data content
-    printf("\nEnter the data to delete: ");
-    scanf("%d", &de);
-    del(&bt, de);
+        // Case: No child or exactly one child
+        if (root->left == NULL) 
+        {
+            btnode* temp = root->right;
+            free(root);
+            return temp;
+        } 
+        else if (root->right == NULL) 
+        {
+            btnode* temp = root->left;
+            free(root);
+            return temp;
+        }
 
-    printf("\nIn-order traversal after deletion: ");
-    inorder(bt);
-    printf("\n");
+        // Case: Node with two children
+        // Get the in-order successor (smallest in the right subtree)
+        btnode* temp = findMin(root->right);
+        root->data = temp->data;
+        // Delete the in-order successor
+        root->right = deleteNode(root->right, temp->data, found);
+    }
+    return root;
+}
+
+int main() 
+{
+    btnode* root = NULL;
+    int data[] = {20, 17, 6, 8, 10, 7, 18, 13, 12, 5};
+    int n = sizeof(data) / sizeof(data[0]);
+
+    // Constructing the BST
+    for (int i = 0; i < n; i++) 
+    {
+        insert(&root, data[i]);
+    }
+
+    printf("In-order traversal of constructed BST:\n");
+    inOrder(root);
+    printf("\n\n");
+
+    int val;
+    while (1) 
+    {
+        printf("Enter data to delete (or -1 to exit): ");
+        if (scanf("%d", &val) != 1 || val == -1) 
+        {
+            break;
+        }
+
+        int found = 0;
+        root = deleteNode(root, val, &found);
+
+        if (!found) 
+        {
+            printf("Data to be deleted, Not found!\n");
+        } 
+        else 
+        {
+            printf("Node %d deleted. New In-order traversal:\n", val);
+            inOrder(root);
+            printf("\n");
+        }
+        printf("----------------------------------\n");
+    }
 
     return 0;
-}
-
-// Requirement i: Insert function using double pointer
-void insert(bstnode **sr, int num)
-{
-    if (*sr == NULL)
-    {
-        *sr = (bstnode *)malloc(sizeof(bstnode));
-        (*sr)->left = NULL;
-        (*sr)->data = num;
-        (*sr)->right = NULL;
-    }
-    else
-    {
-        if (num < (*sr)->data)
-        {
-             insert(&((*sr)->left), num);
-        }
-        else
-        {
-            insert(&((*sr)->right), num);
-        }
-    }
-}
-
-void inorder(bstnode *root)
-{
-    if (root != NULL)
-    {
-        inorder(root->left);
-        printf("%d ", root->data);
-        inorder(root->right);
-    }
-}
-
-void preorder(bstnode *root)
-{
-    if (root != NULL)
-    {
-        printf("%d ", root->data);
-        preorder(root->left);
-        preorder(root->right);
-    }
-}
-
-void postorder(bstnode *root)
-{
-    if (root != NULL)
-    {
-        postorder(root->left);
-        postorder(root->right);
-        printf("%d ", root->data);
-    }
-}
-
-// Requirement ii: Search for a specific data
-void search(bstnode **r, int num, bstnode **par, bstnode **x, int *fo)
-{
-    bstnode *q = *r;
-    *par = NULL;
-    *fo = FALSE;
-    while (q != NULL)
-    {
-        if (q->data == num)
-        {
-            *fo = TRUE;
-            *x = q;
-            return;
-        }
-        *par = q;
-        if (q->data > num)
-        {
-            q = q->left;
-        }
-        else
-        {
-            q = q->right;
-        }
-    }
-}
-
-// Requirement ii: Delete data verifying all possibilities
-void del(bstnode **root, int num)
-{
-    int found;
-    bstnode *parent, *x, *xsucc;
-
-    if (*root == NULL)
-    {
-        printf("\nTree is empty!");
-        return;
-    }
-
-    parent = x = NULL;
-    search(root, num, &parent, &x, &found);
-
-    if (found == FALSE)
-    {
-        printf("\nData to be deleted, Not found!");
-        return;
-    }
-
-    // Possibility 3: The node containing the data has two children
-    if (x->left != NULL && x->right != NULL)
-    {
-        parent = x;
-        xsucc = x->right;
-        while (xsucc->left != NULL)
-        {
-            parent = xsucc;
-            xsucc = xsucc->left;
-        }
-        x->data = xsucc->data;
-        x = xsucc; // Pointer 'x' now targets the successor to be freed
-    }
-
-    // Possibility 1: The node containing the data has no children
-    if (x->left == NULL && x->right == NULL)
-    {
-        if (parent == NULL)
-        {
-            *root = NULL; // Case: Root node
-        }
-        else if (parent->right == x)
-        {
-            parent->right = NULL;
-        }
-        else
-        {
-            parent->left = NULL;
-        }
-        free(x);
-        return;
-    }
-
-    // Possibility 2a: The node containing the data has exactly one child (Right)
-    if (x->left == NULL && x->right != NULL)
-    {
-        if (parent == NULL)
-        {
-            *root = x->right;
-        }
-        else if (parent->left == x)
-        {
-            parent->left = x->right;
-        }
-        else
-        {
-            parent->right = x->right;
-        }
-        free(x);
-        return;
-    }
-
-    // Possibility 2b: The node containing the data has exactly one child (Left)
-    if (x->left != NULL && x->right == NULL)
-    {
-        if (parent == NULL)
-        {
-            *root = x->left;
-        }
-        else if (parent->left == x)
-        {
-            parent->left = x->left;
-        }
-        else
-        {
-            parent->right = x->left;
-        }
-        free(x);
-        return;
-    }
 }
