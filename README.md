@@ -69,6 +69,7 @@ This repository holds C implementations for many common data-structure and algor
 - `mergesort.c` — Merge sort implementation; divide-and-conquer merge routine with a recursive driver
 - `quicksort.c` — Quick sort implementation; partition-based recursive sort with Lomuto-style partition
 - `selectionsort.c` — Selection sort implementation; select the minimum element and place it at the front repeatedly
+ - `bubblesort.c` — Bubble sort implementation; repeatedly swaps adjacent elements to sort the array (simple, O(n^2))
 
 ### trees/
 
