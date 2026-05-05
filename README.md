@@ -18,6 +18,7 @@ This repository holds C implementations for many common data-structure and algor
 ## Contents (questions)
 
 ### arrays/
+
 - `ackermans.c` — Ackermann's function
 - `arrayinsertdelete.c` — Insert and delete operations on an array
 - `binarysearchrecursion.c` — Binary search (recursive)
@@ -27,10 +28,12 @@ This repository holds C implementations for many common data-structure and algor
 - `towersofhanoi.c` — Towers of Hanoi
 
 ### infixprefixpostfix/
+
 - `infixtopostfix.c` — Convert infix expression to postfix
 - `postfix.c` — Evaluate/handle postfix expressions
 
 ### linkedlist/
+
 - `circularlinkedlist.c` — Circular linked list operations
 - `dll.c` — Doubly linked list (DLL) operations
 - `polynomialusingsll.c` — Polynomial representation using singly linked list
@@ -40,15 +43,18 @@ This repository holds C implementations for many common data-structure and algor
 - `stackusingsll.c` — Stack implemented using singly linked list
 
 ### stackqueuewitharray/
+
 - `circularqueue.c` — Circular queue implementation (array)
 - `queue.c` — Queue implementation (array)
 - `stack.c` — Stack implementation (array)
 
 ### strings/
+
 - `naivepatternmatching.c` — Naive string pattern matching
 - `stringhandlingfunctions.c` — Common string handling helper functions
 
 ### structures/
+
 - `magicsquare.c` — Create a magic square
 - `magicsquareornot.c` — Check whether a matrix is a magic square
 - `polynomial.c` — Polynomial operations (array/structure-based)
@@ -57,6 +63,7 @@ This repository holds C implementations for many common data-structure and algor
 - `symmetricornot.c` — Check if a matrix is symmetric
 
 ### sorting/
+
 - `heapsort.c` — Heap sort implementation; builds a max-heap then extracts elements to sort an array in ascending order
 - `insertionsort.c` — Insertion sort implementation; inserts elements into the sorted portion of the array
 - `mergesort.c` — Merge sort implementation; divide-and-conquer merge routine with a recursive driver
@@ -64,11 +71,13 @@ This repository holds C implementations for many common data-structure and algor
 - `selectionsort.c` — Selection sort implementation; select the minimum element and place it at the front repeatedly
 
 ### trees/
+
 - `binarysearch.c` — Binary tree using array representation with inorder, preorder and postorder traversals
 - `bstoperations.c` — Binary Search Tree operations: insert, traversals, search and delete (handles 0/1/2 child cases)
 - `maxheaptree.c` — Max-heap tree operations / heap-based algorithms
 
 ## How to compile
+
 Compile any C source file with gcc. Example (from repository root):
 
 ```bash
