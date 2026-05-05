@@ -37,4 +37,4 @@ confidentiality with regard to the reporter of an incident.
 ## Attribution
 
 This Code of Conduct is adapted from the Contributor Covenant,
-version 2.0, available at https://www.contributor-covenant.org
+version 2.0, available at [https://www.contributor-covenant.org](https://www.contributor-covenant.org)
