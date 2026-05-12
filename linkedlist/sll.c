@@ -56,15 +56,29 @@ void addAtEnd(int val)
     p->next = temp;
 }
 
-// iii) Insert at specified location (1-based index)
-void insertAtPos(int val, int pos)
+void insertAtPos(int val, int index)
 {
-    if (pos == 1) { insertAtHead(val); return; }
+    if (index == 0)
+    { 
+        insertAtHead(val); 
+        return; 
+    }
+    
     node *temp = (node*)malloc(sizeof(node));
     temp->data = val;
     node *p = head;
-    for (int i = 1; i < pos - 1 && p != NULL; i++) p = p->next;
-    if (p == NULL) { printf("Position out of bounds!"); free(temp); }
+
+    // Loop until we reach the node just BEFORE the target index
+    for (int i = 0; i < index - 1 && p != NULL; i++)
+    {
+        p = p->next;
+    }
+
+    if (p == NULL)
+    { 
+        printf("Index out of bounds!"); 
+        free(temp); 
+    }
     else
     {
         temp->next = p->next;
@@ -93,12 +107,31 @@ void deleteLast()
 }
 
 // v) Delete at specified position
-void deleteAtPos(int pos)
+void deleteAtPos(int index)
 {
-    if (pos == 1) { deleteHead(); return; }
+    if (head == NULL)
+    {
+        printf("List is empty!");
+        return;
+    }
+    
+    if (index == 0)
+    { 
+        deleteHead(); 
+        return; 
+    }
+
     node *p = head;
-    for (int i = 1; i < pos - 1 && p != NULL; i++) p = p->next;
-    if (p == NULL || p->next == NULL) printf("Position out of bounds!");
+    // Loop to find the node at index - 1
+    for (int i = 0; i < index - 1 && p != NULL; i++)
+    {
+        p = p->next;
+    }
+
+    if (p == NULL || p->next == NULL)
+    {
+        printf("Index out of bounds!");
+    }
     else
     {
         node *temp = p->next;
