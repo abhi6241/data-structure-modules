@@ -35,17 +35,19 @@ void permutations(char b[], int i, int n)
 int main()
 {
     char c[20];
-    int n;
+    int n = 0;
 
     printf("Enter the String: ");
-    fgets(c, sizeof(c), stdin);
+    scanf("%s", c); // Read string without whitespace
 
-    // Remove newline from fgets
-    c[strcspn(c, "\n")] = '\0';
+    // Manual strlen: count characters until null terminator '\0'
+    while (c[n] != '\0')
+    {
+        n++;
+    }
 
-    n = strlen(c);
-
-    permutations(c, 0, n-1);
+    // Call permutations with 0-based indexing (0 to n-1)
+    permutations(c, 0, n - 1);
 
     printf("\n%dP%d = %d\n", n, n, count);
 
