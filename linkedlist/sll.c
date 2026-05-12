@@ -56,9 +56,9 @@ void addAtEnd(int val)
     p->next = temp;
 }
 
-void insertAtPos(int val, int index)
+void insertAtPos(int val, int pos)
 {
-    if (index == 0)
+    if (pos == 0)
     { 
         insertAtHead(val); 
         return; 
@@ -69,7 +69,7 @@ void insertAtPos(int val, int index)
     node *p = head;
 
     // Loop until we reach the node just BEFORE the target index
-    for (int i = 0; i < index - 1 && p != NULL; i++)
+    for (int i = 0; i < pos - 1 && p != NULL; i++)
     {
         p = p->next;
     }
@@ -107,7 +107,7 @@ void deleteLast()
 }
 
 // v) Delete at specified position
-void deleteAtPos(int index)
+void deleteAtPos(int pos)
 {
     if (head == NULL)
     {
@@ -115,7 +115,7 @@ void deleteAtPos(int index)
         return;
     }
     
-    if (index == 0)
+    if (pos == 0)
     { 
         deleteHead(); 
         return; 
@@ -123,7 +123,7 @@ void deleteAtPos(int index)
 
     node *p = head;
     // Loop to find the node at index - 1
-    for (int i = 0; i < index - 1 && p != NULL; i++)
+    for (int i = 0; i < pos - 1 && p != NULL; i++)
     {
         p = p->next;
     }
